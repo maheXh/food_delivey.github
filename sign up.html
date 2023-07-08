@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url(login_bg.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            color: #fff;
+            text-transform: capitalize;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
+        }
+
+        .box {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            height: fit-content;
+            background-color: rgba(0, 0, 0, 0.775);
+            border-radius: 20px;
+
+        }
+
+        .outer_box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            gap: 20px;
+        }
+
+        .sign_up {
+            display: flex;
+            justify-content: center;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 500;
+            text-transform: uppercase;
+
+        }
+
+        header {
+            color: #fff;
+            font-size: 50px;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0 10px 0;
+            text-transform: uppercase;
+        }
+
+        .input-field .input {
+            height: 45px;
+            width: 350px;
+            border: none;
+            border-radius: 30px;
+            color: #fff;
+            font-size: 15px;
+            padding: 0 0 0 20px;
+            background: rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        i {
+            position: relative;
+            top: -33px;
+            left: 17px;
+            color: #fff;
+        }
+
+        ::-webkit-input-placeholder {
+            color: #fff;
+        }
+
+        .submit {
+            display: flex;
+            justify-content: center;
+            border: none;
+            border-radius: 30px;
+            font-size: 20px;
+            height: 45px;
+            outline: none;
+            width: 100px;
+            color: black;
+            background: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            transition: .3s;
+            margin-left: 10px;
+        }
+
+        .submit:hover {
+            box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .input:hover {
+            box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .two-col {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            color: #fff;
+            font-size: small;
+            margin-top: 10px;
+        }
+
+        .one {
+            display: flex;
+        }
+
+        label a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .login_div {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .LOGIN {
+            /* background-color: #fff; */
+            border-radius: 10px;
+            border: none;
+            font-size: 25px;
+            padding: 10px;
+        }
+
+        button.top {
+            border: none;
+            background-color: transparent;
+            font-weight: 600;
+            color: #fff;
+            font-size: 20px;
+            text-decoration: none;
+            
+
+
+
+        }
+        .top{
+            display: flex;
+            width: 100%;
+            margin-left: 20px;
+            margin-bottom: 10px;
+            justify-content: flex-start;
+            text-decoration: none;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: azure;
+            transition: opacity 3s, visibility 3s;
+        }
+
+        .loader-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader::after {
+            content: "";
+            width: 75px;
+            height: 75px;
+            border: 15px solid transparent;
+            border-top-color: orange;
+            border-radius: 50%;
+            animation: loading 3s ease infinite;
+        }
+
+        @keyframes loading {
+            from {
+                transform: rotate(0turn);
+            }
+
+            to {
+                transform: rotate(3turn);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer_box">
+        <div class="box">
+            <form class="container" action="afterlogin.html" onsubmit="return validate()">
+
+                <div class="top">
+                    <header>SIGN UP</header>
+                    <!-- <button onclick="window.location.href = 'new-page.html'" class="sign_up">Create New Account</button> -->
+
+                </div>
+
+
+                <div class="input-field">
+                    <input type="text" class="input" placeholder="Name" id="name">
+                    <i class='bx bx-user'></i>
+                </div>
+
+                <div class="input-field">
+                    <input type="text" class="input" placeholder="Email" id="email">
+                    <i class='bx bx-user'></i>
+                </div>
+
+                <div class="input-field">
+                    <input type="text" class="input" placeholder="Phone Number" id="phone">
+                    <i class='bx bx-lock-alt'></i>
+                </div>
+                <div class="input-field">
+                    <input type="Password" class="input" placeholder="Password" id="password">
+                    <i class='bx bx-lock-alt'></i>
+                </div>
+                <div class="one">
+                    <input type="checkbox" name="" id="check" required>
+                    <label for="check">terms and conditions</label>
+                </div>
+
+                <div class="login_div">
+                    <!-- <button >CREATE ACCOUNT</button> -->
+                    <input type="submit" value="CREATE ACCOUNT" class="LOGIN">
+                </div>
+                </form>
+
+                <div class="top">
+                    <a href="login.html">
+                        <button class="top">LOGIN?</button></a>
+                </div>
+
+                <div class="two-col">
+                    <div class="loader"></div>
+                    <script>
+                        window.addEventListener("load", () => {
+                            const loader = document.querySelector(".loader");
+
+                            loader.classList.add("loader-hidden");
+
+                            loader.addEventListener("transitionend", () => {
+                                document.body.removeChild("loader");
+                            });
+                        });
+
+                        regx_email = /^([a-z0-9\.-]+)@(a-z0-9-]+).([a-z]{2,8})(.[a-z]{2,8})$/;
+                    </script>
+
+
+                </div>
+            
+        </div>
+    </div>
+    <script>
+        var saved_names = JSON.parse(localStorage.getItem('saved_names')) || [];
+        var saved_emails = JSON.parse(localStorage.getItem('saved_emails')) || [];
+
+        var reg_phone = /^[7-9][\d]{9}$/;
+        var reg_email = /^([a-z0-9\.-]+)@([a-z0-9-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/;
+        var reg_pass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]+$/;
+
+        function id_found(name) {
+            var index = saved_names.indexOf(name);
+            if (index !== -1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function mail_found(mail) {
+            var index = saved_emails.indexOf(mail);
+            if (index !== -1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        var name_js = document.querySelector("#name");
+        var email_js = document.querySelector("#email");
+        var phone_js = document.querySelector("#phone");
+        var password_js = document.querySelector("#password");
+
+        function validate() {
+            if (name_js.value.trim() == "" || email_js.value.trim() == "" || phone_js.value.trim() == "" || password_js.value.trim() == "") {
+                alert("Please fill in all the fields");
+                return false;
+            } else if (id_found(name_js.value.trim())) {
+                alert("Name already taken");
+                return false;
+            } else if (mail_found(email_js.value.trim())) {
+                alert("Account already exists");
+                return false;
+            } else if (!(reg_phone.test(phone_js.value.trim()))) {
+                alert("Please enter a valid phone number");
+                return false;
+            } else if (!(reg_pass.test(password_js.value.trim()))) {
+                var requirements = "The password must contain at least one uppercase letter, one lowercase letter, one special character, and one number.";
+                alert(requirements);
+                return false;
+            } else if (!(reg_email.test(email_js.value.trim()))) {
+                alert("Please enter a valid email id");
+                return false;
+            } else {
+                saved_names.push(name_js.value.trim());
+                saved_emails.push(email_js.value.trim());
+                localStorage.setItem('saved_names', JSON.stringify(saved_names));
+                localStorage.setItem('saved_emails', JSON.stringify(saved_emails));
+                return true;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

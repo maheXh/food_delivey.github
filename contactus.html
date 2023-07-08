@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: antiquewhite;
+        }
+
+        .contact_us {
+            display: flex;
+            justify-content: center;
+            font-family: monospace;
+            font-size: 50px;
+            text-transform: uppercase;
+            padding: 30px;
+            margin-top: 60px;
+            font-weight: 900;
+        }
+
+        .meathods {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            justify-content: space-around;
+            margin-top: 40px;
+            text-transform: uppercase;
+            font-family: monospace;
+            font-size: xx-large;
+
+        }
+
+        .meathods>* {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            font-size: 50px;
+        }
+
+        .icons {
+            width: 100px;
+            margin: 30px;
+        }
+
+
+
+        .text {
+            text-align: center;
+            margin: 20px;
+            font-size: xx-large;
+        }
+
+        .buttons {
+            background-color: rgb(254, 214, 162);
+            font-family: monospace;
+            text-transform: uppercase;
+            padding: 20px;
+            font-size: large;
+            border-radius: 20px;
+
+        }
+
+        .buttons:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+            transition: 0.5s;
+        }
+
+        .time {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 18px;
+        }
+
+        .no {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 18px;
+        }
+
+        .no:hover {
+            font-size: 20px;
+            transition: 0.5s;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="contact_us">
+            contact us
+        </div>
+        <div class="meathods">
+            <div>
+                <img src="support_1067566.png" alt="" class="icons">
+                <div>by phone</div>
+                <div class="time">
+                    (Monday to Friday, 9a.m. to 4p.m. IST)
+                </div>
+                <div class="text">
+                    India Toll-Free <br>
+                    <div class="no"><a href="tel:+911234567890">+91 1234567890</a></div>
+
+                    <br>
+                    International <br>
+                    <div class="no"><a href="tel:+1 684 972 6244">+1 684 972 6244</a></div>
+                </div>
+
+            </div>
+            <div>
+                <img src="printer_695632.png" alt="" class="icons">
+                <div>start new case</div>
+                <div class="text" style="font-size: 22px;">
+                    Just send us your questions or concerns by startinga new case and we will give you the help
+                    required.
+                </div>
+                <div>
+                    <a href="form.html"><button type="button" class="buttons">start new case</button></a>
+                </div>
+            </div>
+            <div>
+                <img src="bubble-chat_2076218.png" alt="" class="icons">
+                <div>live chat</div>
+                <div class="text" style="font-size: 246x;">
+                    Chat with a member of out in-house team.
+                </div>
+                <div>
+                    <a href="https://chat.openai.com/"><button type="button" class="buttons">chat with us</button></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

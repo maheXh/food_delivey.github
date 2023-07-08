@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            background-image: url(louis-hansel-phEaeqe555M-unsplash.jpg);
+            background-size: cover;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            width: auto;
+            justify-content: center;
+            align-items: center;
+            line-height: 30px;
+
+
+
+        }
+
+        .text {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 45px;
+            font-weight: 800;
+            text-transform: uppercase;
+
+
+            color: rgb(255, 166, 0);
+        }
+
+        .minortext {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 10px;
+        }
+
+        .inner {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        #button {
+            padding: 20px;
+            border-radius: 50px;
+            font-size: large;
+            text-transform: uppercase;
+            background-color: rgb(255, 166, 0);
+            box-shadow: 0 5px 20px rgb(255, 166, 0);
+        }
+
+        .content {
+            margin-left: 60%;
+            margin-top: 30px;
+            margin-bottom: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="header">Add new Address</div>
+        <br>
+        <form action="card_payment.html" class="form" onsubmit="return validateForm()">
+            <div class="content">
+                <div class="text">Full Name</div>
+                <input type="text" id="fullName" size="40">
+                <div class="text">Mobile Number</div>
+                <input type="text" id="mobileNumber" size="40">
+                <div class="minortext">May be used to assist delivery</div>
+                <div class="text">Pincode</div>
+                <input type="text" id="pincode" size="40">
+                <div class="text" id="">Flat, House no, Building, Company, Apartment</div>
+                <textarea name="" id="address1" cols="40" rows="5"></textarea>
+                <div class="text">Area, Street, Sector, Village</div>
+                <textarea name="" id="address2" cols="40" rows="5"></textarea>
+                <div class="text" size="40">Landmark</div>
+                <input type="text" name="" id="" placeholder="E.g. near Appolo Hospital" size="40">
+                <br>
+                <div class="inner">
+                    <div class="text">Town/City</div>
+                    <input type="text" size="10" id="town">
+                    <div class="text">State</div>
+                    <select name="" id="state">
+                        <option value="" selected disabled>Choose a state</option>
+                        <option value="">Kerala</option>
+                        <option value="">TamilNadu</option>
+                    </select>
+                </div>
+                <input type="checkbox">Make this my default Address</input><br><br>
+                <center>
+                    <input type="submit" value="Proceed to payment" id="button"></input>
+                </center>
+            </div>
+
+
+        </form>
+    </div>
+    <script>
+        function validateForm(){
+
+            var fullName = document.getElementById("fullName");
+            var mobileNumber = document.getElementById("mobileNumber");
+            var pincode = document.getElementById("pincode");
+            var address = document.getElementById("address1");
+            var address2 = document.getElementById("address2");
+            var town = document.getElementById("town");
+            var state =  document.getElementById("state");
+
+            mob_regx = /^[7-9][0-9]{9}$/;
+            reg_pincode = /[0-9]{6}/;
+
+            if(fullName.value==""){
+                fullName.style.border = "5px solid red";
+                alert("enter a name");
+                return false;
+            }
+            else if (!(mob_regx.test(mobileNumber.value))) {
+                alert("enter a mobile number");
+                mobileNumber.style.border = "5px solid red";
+                return false;
+            }
+            else if(mobileNumber.value==""){
+                mobileNumber.style.border = "5px solid red";
+                alert("enter a mobile number");
+                return false;
+            }
+            else if(pincode.value==""){
+                pincode.style.border = "5px solid red";
+                alert("enter a valid pincode");
+                return false;
+            }
+            else if(!(reg_pincode.test(pincode.value))){
+                reg_pincode.style.border = "5px solid red";
+                alert("enter a valid Pincode");
+                return false;
+            }
+            else if(address.value==""){
+                address.style.border = "5px solid red";
+                alert("enter a valid address");
+                return false;
+            }
+            else if(address2.value==""){
+                address2.style.border = "5px solid red";
+                alert("enter a valid address");
+                return false;
+            }
+            else if(town.value==""){
+                town.style.border = "5px solid red";
+                alert("enter a town");
+                return false;
+            }
+            else{
+                return true;
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>

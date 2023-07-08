@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+    * {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      outline: none;
+      border: none;
+      text-transform: capitalize;
+      transition: all .2s linear;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 25px;
+      min-height: 100vh;
+      background: linear-gradient(90deg, #2ecc71 60%, #27ae60 40.1%);
+    }
+
+    .container form {
+      padding: 20px;
+      width: 700px;
+      background: #fff;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+    }
+
+    .container form .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .container form .row .col {
+      flex: 1 1 250px;
+    }
+
+    .container form .row .col .title {
+      font-size: 20px;
+      color: #333;
+      padding-bottom: 5px;
+      text-transform: uppercase;
+    }
+
+    .container form .row .col .inputBox {
+      margin: 15px 0;
+    }
+
+    .container form .row .col .inputBox span {
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .container form .row .col .inputBox input {
+      width: 100%;
+      border: 1px solid #ccc;
+      padding: 10px 15px;
+      font-size: 15px;
+      text-transform: none;
+    }
+
+    .container form .row .col .inputBox input:focus {
+      border: 1px solid #000;
+    }
+
+    .container form .row .col .flex {
+      display: flex;
+      gap: 15px;
+    }
+
+    .container form .row .col .flex .inputBox {
+      margin-top: 5px;
+    }
+
+    .container form .row .col .inputBox img {
+      height: 34px;
+      margin-top: 5px;
+      filter: drop-shadow(0 0 1px #000);
+    }
+
+    .container form .submit-btn {
+      width: 100%;
+      padding: 12px;
+      font-size: 17px;
+      background: #27ae60;
+      color: #fff;
+      margin-top: 5px;
+      cursor: pointer;
+    }
+
+    .container form .submit-btn:hover {
+      background: #2ecc71;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <form id="myForm" action="thanks.html">
+
+      <div class="row">
+
+        <div class="col">
+
+          <h3 class="title">billing address</h3>
+
+          <div class="inputBox">
+            <span>full name :</span>
+            <input type="text" placeholder="john deo" id="fullName">
+          </div>
+          <div class="inputBox">
+            <span>email :</span>
+            <input type="email" placeholder="example@example.com" id="email">
+          </div>
+          <div class="inputBox">
+            <span>address :</span>
+            <input type="text" placeholder="room - street - locality" id="address">
+          </div>
+          <div class="inputBox">
+            <span>city :</span>
+            <input type="text" placeholder="mumbai" id="city">
+          </div>
+
+          <div class="flex">
+            <div class="inputBox">
+              <span>state :</span>
+              <input type="text" placeholder="india" id="state">
+            </div>
+            <div class="inputBox">
+              <span>zip code :</span>
+              <input type="text" placeholder="123 456" id="zipCode">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col">
+
+          <h3 class="title">payment</h3>
+
+          <div class="inputBox">
+            <span>cards accepted :</span>
+            <img src="images/card_img.png" alt="">
+          </div>
+          <div class="inputBox">
+            <span>name on card :</span>
+            <input type="text" placeholder="mr. john deo" id="nameOnCard">
+          </div>
+          <div class="inputBox">
+            <span>credit card number :</span>
+            <input type="text" placeholder="1111-2222-3333-4444" id="cardNumber">
+          </div>
+          <div class="inputBox">
+            <span>exp month :</span>
+            <input type="text" placeholder="january" id="expMonth">
+          </div>
+
+          <div class="flex">
+            <div class="inputBox">
+              <span>exp year :</span>
+              <input type="text" placeholder="2022" id="expYear">
+            </div>
+            <div class="inputBox">
+              <span>CVV :</span>
+              <input type="text" placeholder="1234" id="cvv">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <input type="submit" value="proceed to checkout" class="submit-btn">
+
+    </form>
+
+  </div>
+
+  <script>
+    
+    const form = document.getElementById('myForm');
+
+    
+    const handleSubmit = (event) => {
+      event.preventDefault(); 
+
+      
+      if (validateForm()) {
+        
+        window.location.href = form.action;
+      }
+    };
+
+    
+    const validateForm = () => {
+      
+      const fullName = document.getElementById('fullName');
+      const email = document.getElementById('email');
+      const address = document.getElementById('address');
+      const city = document.getElementById('city');
+      const state = document.getElementById('state');
+      const zipCode = document.getElementById('zipCode');
+      const nameOnCard = document.getElementById('nameOnCard');
+      const cardNumber = document.getElementById('cardNumber');
+      const expMonth = document.getElementById('expMonth');
+      const expYear = document.getElementById('expYear');
+      const cvv = document.getElementById('cvv');
+
+      
+      const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+
+      
+      const cardNumberRegex = /^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$/;
+
+      
+      let isValid = true;
+
+   
+      if (fullName.value.trim() === '') {
+        isValid = false;
+        fullName.classList.add('error');
+        alert('Please enter your full name.');
+      } 
+      else {
+        fullName.classList.remove('error');
+      }
+
+      if (!emailRegex.test(email.value.trim())) {
+        isValid = false;
+        email.classList.add('error');
+        alert('Please enter a valid email address.');
+      } else {
+        email.classList.remove('error');
+      }
+
+
+      if (address.value.trim() === '') {
+        isValid = false;
+        address.classList.add('error');
+        alert('Please enter your address.');
+      } else {
+        address.classList.remove('error');
+      }
+
+
+      if (city.value.trim() === '') {
+        isValid = false;
+        city.classList.add('error');
+        alert('Please enter your city.');
+      } else {
+        city.classList.remove('error');
+      }
+
+      if (state.value.trim() === '') {
+        isValid = false;
+        state.classList.add('error');
+        alert('Please enter your state.');
+      } else {
+        state.classList.remove('error');
+      }
+
+
+      if (zipCode.value.trim() === '') {
+        isValid = false;
+        zipCode.classList.add('error');
+        alert('Please enter your zip code.');
+      } else {
+        zipCode.classList.remove('error');
+      }
+
+
+      if (nameOnCard.value.trim() === '') {
+        isValid = false;
+        nameOnCard.classList.add('error');
+        alert('Please enter the name on your card.');
+      } else {
+        nameOnCard.classList.remove('error');
+      }
+
+
+      if (!cardNumberRegex.test(cardNumber.value.trim())) {
+        isValid = false;
+        cardNumber.classList.add('error');
+        alert('Please enter a valid card number in the format "1111-2222-3333-4444".');
+      } else {
+        cardNumber.classList.remove('error');
+      }
+
+      if (expMonth.value.trim() === '') {
+        isValid = false;
+        expMonth.classList.add('error');
+        alert('Please enter the expiration month.');
+      } else {
+        expMonth.classList.remove('error');
+      }
+
+      if (expYear.value.trim() === '') {
+        isValid = false;
+        expYear.classList.add('error');
+        alert('Please enter the expiration year.');
+      } else {
+        expYear.classList.remove('error');
+      }
+
+
+      if (cvv.value.trim() === '') {
+        isValid = false;
+        cvv.classList.add('error');
+        alert('Please enter the CVV.');
+      } else {
+        cvv.classList.remove('error');
+      }
+
+      return isValid;
+    };
+
+    form.addEventListener('submit', handleSubmit);
+  </script>
+</body>
+
+</html>

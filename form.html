@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(254, 214, 162);
+        }
+
+        .box {
+            background-color: white;
+            padding: 20px;
+        }
+
+        input {
+            border: none;
+            border-bottom: 2px solid black;
+        }
+
+        textarea {
+            border: none;
+            border-bottom: 2px solid black;
+        }
+
+        .buttons {
+            background-color: rgb(254, 214, 162);
+            font-family: monospace;
+            text-transform: uppercase;
+            padding: 10px;
+            font-size: large;
+            border-radius: 20px;
+
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-bottom: 2px solid black;
+        }
+
+        form input {
+            font-size: 17px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="box">
+            <center>
+                <h1 style="text-decoration: underline; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                    CASE</h1>
+            </center>
+
+            <form action="thanks.html" onsubmit="return validateForm()">
+                <input type="text" placeholder="Enter name" id="namebox">
+                <br>
+                <br>
+                <input type="number" placeholder="Enter phone number" id="phone">
+                <br>
+                <br>
+                <input type="email" placeholder="Enter email" id="email">
+                <br>
+                <br>
+                <textarea name="" id="" cols="30" rows="2" placeholder="Subject" id="subject"></textarea>
+                <br>
+                <br>
+                <textarea name="" id="" cols="40" rows="10" placeholder="Explain" id="content"></textarea>
+                <br>
+                <br>
+
+                <button type="submit" class="buttons">SUBMIT</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function validateForm() {
+            var name = document.querySelector("#namebox");
+            var email = document.querySelector("#email");
+            var phone = document.querySelector("#phone");
+            var subject = document.querySelector("#subject");
+            var message = document.querySelector("#content");
+
+            if (name.value.trim() === "") {
+                alert("Please enter a name");
+                return false;
+            }
+
+            if (email.value.trim() === "") {
+                alert("Please enter an email");
+                return false;
+            }
+
+            if (phone.value.trim() === "") {
+                alert("Please enter a phone number");
+                return false;
+            }
+
+            if (subject.value.trim() === "") {
+                alert("Please enter a subject");
+                return false;
+            }
+
+            if (message.value.trim() === "") {
+                alert("Please enter a message");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>

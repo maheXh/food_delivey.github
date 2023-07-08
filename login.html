@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			background-image: url(login_bg.jpg);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-attachment: fixed;
+			height: 100vh;
+			overflow: hidden;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
+		}
+
+		.box {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: fit-content;
+			background-color: rgba(0, 0, 0, 0.775);
+			border-radius: 20px;
+
+		}
+
+		.outer_box {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+		}
+
+		.container {
+			width: fit-content;
+			display: flex;
+			flex-direction: column;
+			padding: 30px;
+			gap: 20px;
+		}
+
+		.sign_up {
+			display: flex;
+			justify-content: center;
+			background: none;
+			border: none;
+			color: #fff;
+			font-size: 15px;
+			font-weight: 500;
+			text-transform: uppercase;
+
+		}
+
+		header {
+			color: #fff;
+			font-size: 50px;
+			display: flex;
+			justify-content: center;
+			padding: 10px 0 10px 0;
+			text-transform: uppercase;
+		}
+
+		.input-field .input {
+			height: 45px;
+			width: 350px;
+			border: none;
+			border-radius: 30px;
+			color: #fff;
+			font-size: 15px;
+			padding: 0 0 0 20px;
+			background: rgba(255, 255, 255, 0.1);
+			cursor: pointer;
+			transition: .3s;
+		}
+
+		i {
+			position: relative;
+			top: -33px;
+			left: 17px;
+			color: #fff;
+		}
+
+		::-webkit-input-placeholder {
+			color: #fff;
+		}
+
+		.submit {
+			display: flex;
+			justify-content: center;
+			border: none;
+			border-radius: 30px;
+			font-size: 20px;
+			height: 45px;
+			outline: none;
+			width: 100px;
+			color: black;
+			background: rgba(255, 255, 255, 0.7);
+			cursor: pointer;
+			transition: .3s;
+			margin-left: 10px;
+		}
+
+		.submit:hover {
+			box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+		}
+
+		.input:hover {
+			box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+		}
+
+		.two-col {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			color: #fff;
+			font-size: small;
+			margin-top: 10px;
+		}
+
+		.one {
+			display: flex;
+		}
+
+		label a {
+			text-decoration: none;
+			color: #fff;
+		}
+
+		.login_div {
+			display: grid;
+			justify-content: center;
+			align-items: center;
+
+		}
+
+		.LOGIN {
+			background-color: #fff;
+			border-radius: 10px;
+			border: none;
+			font-size: 25px;
+			padding: 10px;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		button.acc {
+			border: none;
+			background-color: transparent;
+			font-weight: 600;
+			color: #fff;
+			font-size: 20px;
+
+
+
+		}
+
+		.loader {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: azure;
+			transition: opacity 3s, visibility 3s;
+		}
+
+		.loader-hidden {
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		.loader::after {
+			content: "";
+			width: 75px;
+			height: 75px;
+			border: 15px solid transparent;
+			border-top-color: orange;
+			border-radius: 50%;
+			animation: loading 3s ease infinite;
+		}
+
+		@keyframes loading {
+			from {
+				transform: rotate(0turn);
+			}
+
+			to {
+				transform: rotate(3turn);
+			}
+		}
+		form{
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+
+		}
+	</style>
+	<title>Login</title>
+
+</head>
+
+<body>
+	<div class="outer_box">
+		<div class="box">
+			<div class="container">
+				<div class="top">
+					<header>Login</header>
+					<a href="sign up.html">
+						<button class="acc">Create New Account</button>
+					</a>
+				</div>
+
+				<form id="loginForm" onsubmit="check(event)">
+					<div class="input-field">
+						<input type="text" class="input" placeholder="Username" id="username" required>
+						<i class='bx bx-user'></i>
+					</div>
+
+					<div class="input-field">
+						<input type="password" class="input" placeholder="Password" id="password" required>
+						<i class='bx bx-lock-alt'></i>
+					</div>
+
+					<div class="login_div">
+						<button class="LOGIN" type="submit">LOG IN</button>
+					</div>
+				</form>
+
+				<div class="two-col">
+					<div class="one">
+						<input type="checkbox" name="" id="check">
+						<label for="check"> Remember Me</label>
+					</div>
+					<div class="two">
+						<label><a href="form.html">Forgot password?</a></label>
+					</div>
+					<div class="loader"></div>
+					<script>
+						window.addEventListener("load", () => {
+							const loader = document.querySelector(".loader");
+							loader.classList.add("loader-hidden");
+							loader.addEventListener("transitionend", () => {
+								document.body.removeChild(loader);
+							});
+						});
+
+						function redirect() {
+							// Redirect to a different page
+							window.location.href = "afterlogin.html";
+						}
+
+						function check(event) {
+							event.preventDefault();
+
+							const username_og = "user";
+							const password_og = "password";
+							const username = document.querySelector("#username").value;
+							const password = document.querySelector("#password").value;
+
+							if (username.trim() === "") {
+								alert("Please enter a valid username");
+							} else if (password.trim() === "") {
+								alert("Please enter a valid password");
+							} else if (username_og !== username || password_og !== password) {
+								alert("Incorrect password");
+							} else {
+								redirect();
+							}
+						}
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
